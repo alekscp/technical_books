@@ -19,5 +19,16 @@ function range(start, end, step) {
   return output;
 }
 
+function sum(arr) {
+  output = 0;
+
+  for (var i = 0; i < arr.length; i++) {
+    output += arr[i];
+  }
+
+  return output;
+}
+
 console.log(range(1, 10));
 console.log(range(5, 2, -1));
+console.log(sum(range(1, 10)));
