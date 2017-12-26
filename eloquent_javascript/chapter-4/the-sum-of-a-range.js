@@ -3,10 +3,10 @@ function range(start, end, step) {
     step = 1;
   };
 
-  var rangeLength = Math.abs(end - start) + 1;
+  var rangeLength = Math.abs(end - start);
   var output = [start];
 
-  while (output.length < rangeLength) {
+  while (output.length <= rangeLength) {
     lastNum = output[output.length - 1];
 
     if (end < start) {
