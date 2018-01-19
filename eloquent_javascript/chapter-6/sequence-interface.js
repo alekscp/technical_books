@@ -7,6 +7,7 @@ function ArraySeq(arr) {
 ArraySeq.prototype.next = function() {
   value = this.seq[this.counter];
   this.counter++;
+
   return value;
 }
 
@@ -21,49 +22,23 @@ ArraySeq.prototype.isEndReached = function() {
 function RangeSeq(from, to) {
   this.from = from;
   this.to = to;
-  this.isRange = true;
-  arr = test(from, to);
 
-  ArraySeq.call(this, arr);
+  ArraySeq.call(this, buildArray(from, to));
 }
-
 RangeSeq.prototype = Object.create(ArraySeq.prototype);
 
-RangeSeq.prototype.seq = function() {
+function buildArray(from, to) {
   var arr = [];
 
-  for (var i = this.from; i == this.to; i++) {
-    arr.push(i);
-  }
-
-  this.seq = arr;
-};
-
-function test(from, to) {
-  var arr = [];
-
-  for (var i = from; i == to; i++) {
-    console.log(i)
+  for (var i = from; i <= to; i++) {
     arr.push(i);
   }
 
   return arr;
-};
-// Object.defineProperty(RangeSeq.prototype, "seq", {
-//   set: function(arr) {
-//     this.seq = arr;
-//   }
-// });
+}
 
 function logFive(sequence) {
-  console.log(sequence.seq)
-  if (sequence.isRange) { 
-    console.log("HEY")
-    sequence.buildSequence; }
-
-  console.log(sequence)
   for (var i = 0; i < 5; i++) {
-
     if (sequence.isEndReached()) {
       break;
     } else {
@@ -72,7 +47,7 @@ function logFive(sequence) {
   }
 }
 
-// logFive(new ArraySeq([1, 2]));
+logFive(new ArraySeq([1, 2]));
 // → 1
 // → 2
 logFive(new RangeSeq(100, 1000));
