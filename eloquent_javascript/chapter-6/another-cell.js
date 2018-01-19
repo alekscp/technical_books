@@ -28,6 +28,10 @@ TextCell.prototype.draw = function(width, height) {
   return result;
 };
 
+// ##########################################
+// New logic
+// ##########################################
+
 function StretchCell(inner, width, height) {
   this.inner = inner;
   this.width = width;
